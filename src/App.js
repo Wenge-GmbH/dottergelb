@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
+  state = {
+    text: 'dotter it is!',
+    text2: 'dotter it is!',
+  };
+
+  handleClick = (param) => () => {
+    this.setState({
+      [param]: this.state[param] + '2',
+    })
+  }
+  test(startWert) {
+    var counter = startWert;
+    return function () {
+      return counter++;
+    }
+  }
+
+
   render() {
+    this.count = this.test(6);
+    this.count2 = this.test(1);
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
       </div>
     );
   }
 }
 
+
 export default App;
+
+
+var test = new App();
